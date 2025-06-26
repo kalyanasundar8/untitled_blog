@@ -13,6 +13,7 @@ export default function FeatureBlog() {
       author: "Karthik Ramasamy",
       tags: ["Web Development", "JavaScript", "Full-Stack"],
       avatar: "https://i.pravatar.cc/150?img=1",
+      coverImage: "https://images.unsplash.com/photo-1750190437388-862aeca97f9e?q=80&w=1828&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       publishedDate: "2025-06-02",
     },
     {
@@ -22,6 +23,8 @@ export default function FeatureBlog() {
       author: "Anusha Devi",
       tags: ["UI/UX", "Design Systems", "Figma"],
       avatar: "https://i.pravatar.cc/150?img=2",
+      coverImage: "https://images.unsplash.com/photo-1750440982726-d723eab666a5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      publishedDate: "2025-06-02",
     },
     {
       id: 3,
@@ -30,6 +33,7 @@ export default function FeatureBlog() {
       author: "Sathish Kumar",
       tags: ["React", "Redux", "Frontend"],
       avatar: "https://i.pravatar.cc/150?img=3",
+      coverImage: "https://images.unsplash.com/photo-1750190437388-862aeca97f9e?q=80&w=1828&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       publishedDate: "2025-06-05",
     },
     {
@@ -39,6 +43,7 @@ export default function FeatureBlog() {
       author: "Divya Natarajan",
       tags: ["Cloud", "Serverless", "AWS"],
       avatar: "https://i.pravatar.cc/150?img=4",
+      coverImage: "https://images.unsplash.com/photo-1750440982726-d723eab666a5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       publishedDate: "2025-06-08",
     },
     {
@@ -48,6 +53,7 @@ export default function FeatureBlog() {
       author: "Vignesh Subramanian",
       tags: ["UX Writing", "Content Design", "Microcopy"],
       avatar: "https://i.pravatar.cc/150?img=5",
+      coverImage: "https://images.unsplash.com/photo-1750190437388-862aeca97f9e?q=80&w=1828&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       publishedDate: "2025-06-10",
     },
     {
@@ -57,6 +63,7 @@ export default function FeatureBlog() {
       author: "Meena Raj",
       tags: ["AI", "EdTech", "Innovation"],
       avatar: "https://i.pravatar.cc/150?img=6",
+      coverImage: "https://images.unsplash.com/photo-1750440982726-d723eab666a5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       publishedDate: "2025-06-11",
     },
     {
@@ -66,6 +73,7 @@ export default function FeatureBlog() {
       author: "Aravind Elango",
       tags: ["Frontend", "Figma", "HTML/CSS"],
       avatar: "https://i.pravatar.cc/150?img=7",
+      coverImage: "https://images.unsplash.com/photo-1750190437388-862aeca97f9e?q=80&w=1828&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       publishedDate: "2025-06-15",
     },
     {
@@ -75,27 +83,32 @@ export default function FeatureBlog() {
       author: "Swetha Balaji",
       tags: ["React", "Performance", "Optimization"],
       avatar: "https://i.pravatar.cc/150?img=8",
+      coverImage: "https://images.unsplash.com/photo-1750440982726-d723eab666a5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       publishedDate: "2025-06-18",
     },
   ]);
   return (
     <div>
       <div className="container mx-auto">
-        {featureBlogs.map(
-          ({ id, title, author, tags, avatar, publishedDate }) => (
-            <div key={id}>
-              <h1>{title}</h1>
-              <div>
-                <Author
-                  avatarImage={avatar}
-                  authorName={author}
-                  publishedDate={publishedDate}
-                />
-                <Tags tags={tags} />
+        <div className="flex items-center space-x-5 overflow-x-hidden">
+          {featureBlogs.map(
+            ({ id, title, author, tags, avatar, coverImage, publishedDate }) => (
+              <div key={id} className="bg-cover bg-center" style={{
+                backgroundImage: `url(${coverImage})`
+              }}>
+                <h1>{title}</h1>
+                <div>
+                  <Author
+                    avatarImage={avatar}
+                    authorName={author}
+                    publishedDate={publishedDate}
+                  />
+                  <Tags tags={tags} />
+                </div>
               </div>
-            </div>
-          )
-        )}
+            )
+          )}
+        </div>
       </div>
     </div>
   );
